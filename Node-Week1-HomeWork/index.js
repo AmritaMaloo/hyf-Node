@@ -11,8 +11,8 @@ const file4_Promise = readFileP('file_4.txt');
 const start = new Date();
 
 Promise.all([file1_Promise, file2_Promise, file3_Promise, file4_Promise]).then((data) => {
-    const filesConcat = data[0] + " " + data[1] + " " + data[2] + " " + data[3];
-   
+    //const filesConcat = data[0] + " " + data[1] + " " + data[2] + " " + data[3];
+    const filesConcat = data.join(" ");
     const arrayOfWords = filesConcat.toLowerCase().split(/[^a-zA-Z0-9]/).filter(s => s.length > 0);
     let tempArray = [];
     let countArray = [];
