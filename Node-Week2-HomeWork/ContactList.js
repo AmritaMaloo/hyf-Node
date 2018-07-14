@@ -1,4 +1,5 @@
 const Contact = require("./Contact");
+//const Read = require("./read.js");
 const fs = require("fs");
 const util = require("util");
 const writeFileP = util.promisify(fs.writeFile);
@@ -31,7 +32,10 @@ class ContactList {
             let parsed = JSON.parse(data);
             for(const element of parsed) {
             let parsedInstOfContact = new Contact(element.name, element.phone, element.bday);
-            console.log(parsedInstOfContact);
+            console.log("after parsing the contactsfile", parsedInstOfContact);
+            parsedInstOfContact.call();
+            parsedInstOfContact.birthday();
+                       
             }
                        
         })
